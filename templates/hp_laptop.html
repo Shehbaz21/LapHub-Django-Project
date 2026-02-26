@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LapHub | HP Laptops</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0b0f19;color:white;}
+
+/* NAVBAR */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    position:sticky;top:0;z-index:100;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:700;
+    background:linear-gradient(45deg,#00eaff,#0072ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-right a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+    font-size:15px;
+}
+.nav-right a:hover{color:#00eaff;}
+
+/* CART */
+.cart-box{
+    position:relative;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.cart-count{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:#00eaff;
+    color:#000;
+    font-size:12px;
+    font-weight:600;
+    padding:2px 6px;
+    border-radius:50%;
+}
+
+/* HERO */
+.hero{text-align:center;padding:80px 20px 40px;}
+.hero h1{
+    font-size:52px;
+    font-weight:700;
+    background:linear-gradient(45deg,#00eaff,#8f94fb);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.hero p{color:#aaa;margin-top:10px;}
+
+/* GRID */
+.container{
+    padding:50px 60px 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.05);
+    border-radius:22px;
+    padding:22px;
+    text-align:center;
+    transition:.35s;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.price{font-size:22px;color:#00ffae;font-weight:600;margin:8px 0;}
+
+.stock{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:13px;
+    background:rgba(255,152,0,0.15 avoiding;
+    color:#ffb74d;
+    margin-bottom:14px;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00eaff,#0072ff);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,234,255,0.4);
+}
+button:disabled{
+    background:#555;
+    cursor:not-allowed;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,0.04);
+    color:#888;
+    font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    header{padding:15px 20px;}
+    .container{padding:30px 20px 60px;}
+    .hero h1{font-size:36px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">LapHub</div>
+
+    <div class="nav-right">
+        <a href="#">Home</a>
+        <a href="#">HP Laptops</a>
+        <a href="#">Accessories</a>
+
+        <div class="cart-box">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>HP Premium Laptops</h1>
+    <p>Performance • Reliability • Power</p>
+</section>
+
+<section class="container">
+
+    <div class="card">
+        <img src="{% static 'images/HP Spectre.png' %}">
+        <h3>HP Spectre x360</h3>
+        <div class="price">₹1,29,999</div>
+        <div class="stock" id="stock1">12 in stock</div>
+        <button onclick="addToCart(1)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'images/HP Pavilion 15.png' %}">
+        <h3>HP Pavilion 15</h3>
+        <div class="price">₹74,999</div>
+        <div class="stock" id="stock2">20 in stock</div>
+        <button onclick="addToCart(2)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08159812.png">
+        <h3>HP Victus Gaming</h3>
+        <div class="price">₹89,999</div>
+        <div class="stock" id="stock3">15 in stock</div>
+        <button onclick="addToCart(3)">Add to Cart</button>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 LapHub HP Store • Premium Quality Guaranteed
+</footer>
+
+<script>
+let cart = 0;
+let stock = {1:12,2:20,3:15};
+
+function addToCart(id){
+    if(stock[id] <= 0) return;
+
+    cart++;
+    stock[id]--;
+
+    document.getElementById("cartCount").innerText = cart;
+    document.getElementById("stock"+id).innerText = stock[id] + " in stock";
+
+    if(stock[id] === 0){
+        const buttons = document.querySelectorAll("button");
+        buttons[id-1].disabled = true;
+        buttons[id-1].innerText = "Out of Stock";
+    }
+}
+</script>
+
+</body>
+</html>

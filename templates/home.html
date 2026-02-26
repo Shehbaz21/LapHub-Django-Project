@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LapHub | Premium Laptop Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+    background:#0b1220;
+    color:white;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg, rgba(15,23,42,0.75), rgba(30,64,175,0.55));
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#00e5ff;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:28px;
+    transition:.3s;
+}
+
+.nav-links a:hover{color:#00e5ff;}
+
+/* HERO */
+.hero{
+    height:85vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
+    url('{% static "images/laptop-bg.jpg" %}');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:64px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    opacity:.85;
+    margin-bottom:30px;
+}
+
+.cta-btn{
+    padding:14px 34px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(45deg,#00e5ff,#0077ff);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.cta-btn:hover{
+    transform:translateY(-4px) scale(1.05);
+}
+
+/* SECTION */
+.section{
+    padding:90px 60px;
+    text-align:center;
+    background:#f4f7fb;
+    color:#111;
+}
+
+.section h2{
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+/* GRID */
+.brand-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+.brand-card{
+    background:white;
+    border-radius:20px;
+    padding:35px 25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.brand-card:hover{
+    transform:translateY(-14px);
+    box-shadow:0 30px 80px rgba(0,0,0,.18);
+}
+
+.brand-card img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:18px;
+}
+
+.brand-card h3{
+    margin-bottom:10px;
+}
+
+.brand-card p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+.brand-btn{
+    background:linear-gradient(45deg,#00e5ff,#0077ff);
+    border:none;
+    padding:11px 26px;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.brand-btn:hover{transform:scale(1.08);}
+
+/* FOOTER */
+.footer{
+    background:#0b1220;
+    color:white;
+    text-align:center;
+    padding:28px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">LapHub</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Brands</a>
+        <a href="#">Deals</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>Choose Your Perfect Laptop</h1>
+        <p>Premium collection from Apple, HP, Dell, Lenovo & ASUS</p>
+        <button class="cta-btn">Explore Now</button>
+    </div>
+</div>
+
+<!-- BRANDS -->
+<div class="section">
+    <h2>Top Laptop Brands</h2>
+
+    <div class="brand-grid">
+
+        <div class="brand-card">
+            <img src="{% static 'images/apple.png' %}">
+            <h3>Apple</h3>
+            <p>Premium MacBook performance and design</p>
+            <button class="brand-btn">View Models</button>
+        </div>
+
+        <div class="brand-card">
+            <img src="{% static 'images/hp.png' %}">
+            <h3>HP</h3>
+            <p>Reliable laptops for work and study</p>
+            <button class="brand-btn">View Models</button>
+        </div>
+
+        <div class="brand-card">
+            <img src="{% static 'images/newDell.png' %}">
+            <h3>Dell</h3>
+            <p>Business and gaming powerhouse</p>
+            <button class="brand-btn">View Models</button>
+        </div>
+
+        <div class="brand-card">
+            <img src="{% static 'images/newLenovo.png' %}">
+            <h3>Lenovo</h3>
+            <p>Smart performance with durability</p>
+            <button class="brand-btn">View Models</button>
+        </div>
+
+        <div class="brand-card">
+            <img src="{% static 'images/newAsus.png' %}">
+            <h3>ASUS</h3>
+            <p>Gaming and creator focused machines</p>
+            <button class="brand-btn">View Models</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    © 2026 LapHub — Premium Laptop Store
+</div>
+
+</body>
+</html>
