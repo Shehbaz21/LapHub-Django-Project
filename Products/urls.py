@@ -7,7 +7,7 @@ urlpatterns = [
     path('Apple Mackbook/', views.Apple_Mackbook),
     path('HP Laptop/', views.hp_laptop),
     path('Dell Laptop/', views.dell_laptop),
-    path('Lenovo Laptop/', views.lenovo_laptop),
-    path('Asus Laptop/', views.asus_laptop)
+    path('contact_us/', views.contact_us)
+  
     
     ]

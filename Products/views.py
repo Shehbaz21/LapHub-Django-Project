@@ -11,11 +11,9 @@ def hp_laptop(request):
     return render(request, 'hp_laptop.html')
 
 def dell_laptop(request):
-    return render(request, 'dell_laptop.html')
+    return render(request, 'dell_laptop.html')  
 
-def lenovo_laptop(request):
-    return render(request, 'lenovo_laptop.html')
-
-def asus_laptop(request):
-    return render(request, 'asus_laptop.html')  
+def contact_us(request):
+    return render(request, 'contact_us.html')   
+  
 
